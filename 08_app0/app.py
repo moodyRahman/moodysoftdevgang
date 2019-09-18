@@ -23,7 +23,8 @@ def bb():
 @app.route("/static")
 def aa():
     print(__name__)
-    return "qqqqqqqqqqqqqq"
+    file = open("./static/index.html", "r").read()
+    return file
 
 if __name__ == "__main__":
     app.debug = True

@@ -5,7 +5,9 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     print(__name__)
-    return "no hablo queso!"
+    return "<a href='/mood'>link text</a>"
+def noot():
+    return "peepoo in my drawer"
 
 
 @app.route("/doof")
@@ -23,8 +25,7 @@ def bb():
 @app.route("/static")
 def aa():
     print(__name__)
-    file = open("./static/index.html", "r").read()
-    return file
+    return open("./static/index.html").read()
 
 if __name__ == "__main__":
     app.debug = True

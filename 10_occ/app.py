@@ -15,7 +15,7 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     print(__name__) # Printed onto console on refresh
-    return "poopoopeepee"
+    return '<a href="/occupyflaskst">click here for 10_occ !!</a>'
 
 @app.route("/jeff")
 def jeff():

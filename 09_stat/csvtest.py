@@ -7,36 +7,35 @@ import csv
 
 import random
 
-def reee():
-    allrows = []
-    alljobs = {}
+allrows = []
+alljobs = {}
 
-    with open("static/occupations.csv") as csvfile:
-        readCSV = csv.reader(csvfile, delimiter=",")
-        for row in readCSV:
-            allrows.append(row)
+with open("occupations.csv") as csvfile:
+    readCSV = csv.reader(csvfile, delimiter=",")
+    for row in readCSV:
+        allrows.append(row)
 
 # print (allrows[1])
 
-    alljobs[allrows[1][0]] = float(allrows[1][1])
+alljobs[allrows[1][0]] = float(allrows[1][1])
 
 # print (alljobs[allrows[1][0]])
 
-    for x in range(1, len(allrows)):
-        alljobs[allrows[x][0]] = float(allrows[x][1]) * 10
+for x in range(1, len(allrows)):
+    alljobs[allrows[x][0]] = float(allrows[x][1]) * 10
 
 
-    alljobs.pop("Total")
+alljobs.pop("Total")
 
-    def getjob():
-        low = 0
-        high = 0
-        selector = random.randint(0, 997)
-        for job in alljobs.keys():
-                high = low + alljobs[job]
-                if low <= selector and selector < high:
-                    return job
-                low = high
+def getjob():
+    low = 0
+    high = 0
+    selector = random.randint(0, 997)
+    for job in alljobs.keys():
+            high = low + alljobs[job]
+            if low <= selector and selector < high:
+                return job
+            low = high
 
     # testdict = {}
     #
@@ -48,7 +47,4 @@ def reee():
     #     #print(z)
     #     testdict[z] += 1
 
-    return getjob()
-
-
-reee()
+print(getjob())

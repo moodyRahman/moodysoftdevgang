@@ -15,7 +15,10 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
     print(__name__) # Printed onto console on refresh
-    return '<a href="/occupyflaskst">click here for 10_occ !!</a>'
+    return '''<a href="/occupyflaskst">click here for 10_occ !!</a> <br>
+                <a href="/jeff">old index page</a> <br>
+                <a href="/my_foist_template">jinja test</a> <br>
+            '''
 
 @app.route("/jeff")
 def jeff():

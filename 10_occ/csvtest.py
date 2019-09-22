@@ -7,7 +7,7 @@ import csv
 
 import random
 
-def reee():
+def getjob():
     allrows = []
     alljobs = {}
 
@@ -51,4 +51,4 @@ def reee():
     return getjob()
 
 
-reee()
+getjob()

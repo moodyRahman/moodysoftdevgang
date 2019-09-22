@@ -25,6 +25,13 @@ def jeff():
     print(__name__)
     return open("./static/index.html").read()
 
+
+@app.route("/a")
+def a():
+    print(__name__)
+    return csvtest.allrows
+
+
 @app.route("/my_foist_template")
 def disp():
     print(__name__) # Printed onto console on refresh
@@ -42,7 +49,7 @@ def hw1():
             allrows.append(row)
 
     print(__name__) # Printed onto console on refresh
-    return render_template( "occupation.html", jobinp = csvtest.reee(), twat = allrows)
+    return render_template( "occupation.html", jobinp = csvtest.getjob(), twat = allrows[1:])
 
 
 

@@ -9,8 +9,20 @@
 from flask import Flask, render_template
 import csvtest
 import csv
+from googlesearch import search
 
 app = Flask(__name__)
+
+
+
+allrows = []
+
+with open("static/occupations.csv") as csvfile:  #reads file for the html table
+    readCSV = csv.reader(csvfile, delimiter=",")
+    for row in readCSV:
+        allrows.append(row)
+
+
 
 @app.route("/")     # this is the "homepage"
 def hello_world():
@@ -25,6 +37,11 @@ def jeff():
     print(__name__)
     return open("./static/index.html").read()
 
+@app.route("/goog")
+def googtest():
+    print(__name__)
+    link = next(search("retard", num=1, stop=1, pause=.01))
+    return render_template("occupation.html")
 
 @app.route("/a")
 def a():
@@ -41,12 +58,6 @@ def disp():
 
 @app.route("/occupyflaskst")
 def hw1():
-    allrows = []
-
-    with open("static/occupations.csv") as csvfile:  #reads file for the html table
-        readCSV = csv.reader(csvfile, delimiter=",")
-        for row in readCSV:
-            allrows.append(row)
 
     print(__name__) # Printed onto console on refresh
     #twat is a 2d array of the jobs

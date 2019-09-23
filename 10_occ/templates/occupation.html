@@ -39,11 +39,9 @@
 
       {% for i in twat %}
       <tr>
-        {% for x in i %}
-        <!-- yeah i tried making some proper css for this but this hack looks better -->
-        <!-- ¯\_(ツ)_/¯ -->
-          <td>{{ x }}&nbsp &nbsp &nbsp</td>
-        {% endfor %}
+        <td><a href="{{i[2]}}">{{i[0]}}</a></td>
+        <td>{{i[1]}}</td>
+
       </tr>
       {% endfor %}
     </table>

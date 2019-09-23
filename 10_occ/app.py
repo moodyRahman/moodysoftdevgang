@@ -12,7 +12,7 @@ import csv
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/")     # this is the "homepage"
 def hello_world():
     print(__name__) # Printed onto console on refresh
     return '''<a href="/occupyflaskst">click here for 10_occ !!</a> <br>
@@ -20,7 +20,7 @@ def hello_world():
                 <a href="/my_foist_template">jinja test</a> <br>
             '''
 
-@app.route("/jeff")
+@app.route("/jeff")   #testing a dumb method to read html
 def jeff():
     print(__name__)
     return open("./static/index.html").read()
@@ -28,27 +28,29 @@ def jeff():
 
 @app.route("/a")
 def a():
-    print(__name__)
-    return csvtest.allrows
+    print(__name__)    # dont go here
+    return csvtest.allrows   #this is just me playing around lmao
 
 
 @app.route("/my_foist_template")
 def disp():
     print(__name__) # Printed onto console on refresh
     coll = [0, 1,2, 3,4, 5]
-    return render_template( "tempp.html", username = "doof")
+    return render_template( "tempp.html", username = "doof")   #jinja attempt one!
 
 
 @app.route("/occupyflaskst")
 def hw1():
     allrows = []
 
-    with open("static/occupations.csv") as csvfile:
+    with open("static/occupations.csv") as csvfile:  #reads file for the html table
         readCSV = csv.reader(csvfile, delimiter=",")
         for row in readCSV:
             allrows.append(row)
 
     print(__name__) # Printed onto console on refresh
+    #twat is a 2d array of the jobs
+    #.getjob() is an imported function to return the weighted randomly chosen job
     return render_template( "occupation.html", jobinp = csvtest.getjob(), twat = allrows[1:])
 
 

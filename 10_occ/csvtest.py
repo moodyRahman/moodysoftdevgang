@@ -3,6 +3,8 @@
 #K06 -- StI/O: Divine your Destiny!
 #2019-09-16
 
+#
+# i copy pasted the code into one big function and ipmorted it into app.py
 import csv
 
 import random

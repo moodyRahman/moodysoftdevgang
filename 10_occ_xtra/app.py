@@ -40,8 +40,11 @@ def jeff():
 @app.route("/goog")
 def googtest():
     print(__name__)
-    link = next(search("retard", num=1, stop=1, pause=.01))
-    return render_template("occupation.html")
+    x = [next(search(x, num=1, stop=1, pause=.01)) for x in [y for y in allrows[0]] ]
+    out = ""
+    for z in x:
+        out += (z + ", ")
+    return out
 
 @app.route("/a")
 def a():

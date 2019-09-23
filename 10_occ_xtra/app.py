@@ -40,15 +40,16 @@ def jeff():
 @app.route("/goog")
 def googtest():
     print(__name__)
-    x = [next(search(x, num=1, stop=1, pause=.01)) for x in [y for y in allrows[0]] ]
+    x = [next(search("how to get a job in"+x, pause=2)) for x in [y[0] for y in allrows[1:] ] ]
     out = ""
     for z in x:
-        out += (z + ", ")
-    return out
+        out += (z + ", <br>")
+    # return render_template("occupation.html", jobinp = csvtest.getjob(), twat = allrows[1:], links = z)
+    return "x"
 
 @app.route("/a")
 def a():
-    print(__name__)    # dont go here
+    print(__name__)    # dont go here\
     return csvtest.allrows   #this is just me playing around lmao
 
 

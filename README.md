@@ -1,4 +1,4 @@
 # moodysoftdevgang
 
-our anthem is hand of god by jon bellion
+our anthem is Death of a bachelor by p!atd
 go listen to it, an absolute bop

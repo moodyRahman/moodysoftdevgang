@@ -57,6 +57,9 @@ def a():
 def disp():
     print(__name__) # Printed onto console on refresh
     coll = [0, 1,2, 3,4, 5]
+    for int x in coll:
+        pass
+        # dont forget to implement the coll loop here
     return render_template( "tempp.html", username = "doof")   #jinja attempt one!
 
 

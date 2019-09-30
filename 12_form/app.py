@@ -23,27 +23,21 @@ def reeee():
 def twoo():
     print(__name__)
     print(app)
-    print("######")
-    print(request)
-    print("#####")
     print(request.args)
-    print("####")
-    print(request.form)
-    print("###")
-    print(request.headers)
-    return ("you wrote " + request.args["name"])
+    return request.args["name"]
+
+@app.route("/")
+def landing():
+    return render_template("d.html")
+
+@app.route("/auth")
+def auth():
+    pass
 
 
-@app.route("/cond")
-def condtest():
-    if len(request.args) == 0:
-        return render_template("roop.html")
-    else:
-        return ("you wrote "+request.args["name"])
+
 
 
 if __name__ == "__main__":
     app.debug = True
     app.run()
-
-

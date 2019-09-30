@@ -30,6 +30,10 @@ def twoo():
 # def landing():
 #     return render_template("d.html")
 
+@app.route("/")
+def landing():
+    return render_template("foop.html")
+
 @app.route("/auth")
 def auth():
     if "name" in request.args:

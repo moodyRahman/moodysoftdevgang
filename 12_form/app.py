@@ -1,7 +1,7 @@
-# Moududur "Moody" Rahman
+# Moududur "Moody" Rahman and Hannah Fried
 # SoftDev1 pd2
-# K10 -- Jinja Tuning
-# 2019-09-21
+# K12 -- Echo Echo Echo
+# 2019-09-25
 
 
 
@@ -26,13 +26,16 @@ def twoo():
     print(request.args)
     return request.args["name"]
 
-@app.route("/")
-def landing():
-    return render_template("d.html")
+# @app.route("/")
+# def landing():
+#     return render_template("d.html")
 
 @app.route("/auth")
 def auth():
-    pass
+    if "name" in request.args:
+        return render_template("auth.html", header = request.headers, uname = request.args["name"], method = request.method)
+    else:
+        return render_template("foop.html")
 
 
 

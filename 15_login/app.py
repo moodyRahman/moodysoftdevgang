@@ -13,6 +13,7 @@ from flask import request
 from flask import redirect
 from flask import url_for
 from flask import session
+from flask import flash
 
 
 app = Flask(__name__)
@@ -58,6 +59,7 @@ def auth():
 		if request.args['name'] == 'hillary':
 			if request.args['password'] == 'moody':
 				session["username"] = "hillary"
+				flash("log in successful!")
 				return redirect("/welcome")
 			else:
 				return redirect("/login")

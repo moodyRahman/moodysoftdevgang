@@ -12,10 +12,11 @@ from flask import render_template
 from flask import request
 from flask import redirect
 from flask import url_for
-from flask import sessions
+from flask import session
 
 
 app = Flask(__name__)
+app.secret_key = 'hfjkafhrku'
 
 allpasswords = {"hillary": "moody"}
 
@@ -23,7 +24,11 @@ allpasswords = {"hillary": "moody"}
 
 @app.route("/")
 def home():
-	return "hello"
+	print("######")
+	if 'username' in session:
+		if session['username'] == 'hillary':
+			return redirect('/welcome')
+	return redirect('/login')
 
 
 @app.route("/error")
@@ -38,6 +43,7 @@ def login():
 def auth():
 	if request.args['name'] == 'hillary':
 		if request.args['password'] == 'moody':
+			session["username"] = "hillary"
 			return redirect("/welcome")
 		else:
 			return redirect("/login")
@@ -46,7 +52,10 @@ def auth():
 
 @app.route("/welcome")
 def welcome():
-	return "Hello"
+	if session['username'] == "hillary":
+		return "You are hillary"
+	else:
+		return "You're not supposed to be here"
 
 if __name__ == "__main__":
     app.debug = True

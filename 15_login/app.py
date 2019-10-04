@@ -21,7 +21,10 @@ app.secret_key = 'hfjkafhrku'
 allpasswords = {"hillary": "moody"}
 
 
-
+# we start from the root directory
+# test the existence of username and if it's "hillary"
+# if so go to welcome (this only happens w active hillary session)
+# otherwise go to login
 @app.route("/")
 def home():
 	print("######")
@@ -35,9 +38,19 @@ def home():
 def error():
 	return "<a href='/'>ya doofed up <br> welcome to ur error page</a> <br>"
 
+# render login depending on user at hand
 @app.route("/login")
 def login():
-	return render_template("login.html")
+	if "username" in session:
+		return render_template("login.html", uname = session["username"])
+	return render_template("login.html", uname = "no one")
+
+# from the login form, if there is a key called name
+# check if name is hillary and password is Moody
+# password has to exist to reach here is via login only
+#
+# the only other way is via the logout button
+# which fails the first cond and pops the user
 
 @app.route("/auth")
 def auth():
@@ -61,7 +74,7 @@ def welcome():
 			return render_template("welcome.html", uname = session["username"])
 		else:
 			return "You're not supposed to be here"
-	return "no one is logged in go away"
+	return redirect("/login")
 
 if __name__ == "__main__":
     app.debug = True

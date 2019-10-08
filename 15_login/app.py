@@ -50,9 +50,9 @@ def login():
 # check if name is hillary and password is Moody
 # password has to exist to reach here is via login only
 #
-# the only other way is via the logout button
+# the only other way is via the logout buttonbcbcvbcvbcvbvcb
 # which fails the first cond and pops the user
-
+xvxfvxfvxfbvfxxbdgf
 @app.route("/auth")
 def auth():
 	if "name" in request.args:

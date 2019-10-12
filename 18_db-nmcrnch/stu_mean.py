@@ -39,15 +39,6 @@ for row in courses:
     c.execute(command)
 
 def run():
-
-	# for row in stud:
-	#     command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
-	#     c.execute(command)
-	#
-	# for row in courses:
-	#     command = "INSERT INTO courses VALUES('{}', '{}', '{}')".format(row["code"], row["mark"], row["id"])
-	#     c.execute(command)
-
 	command = "SELECT * FROM students"
 	allstudents = c.execute(command).fetchall()
 	for stud in allstudents:

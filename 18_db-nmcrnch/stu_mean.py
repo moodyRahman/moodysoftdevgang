@@ -59,9 +59,6 @@ def run():
 	command = ""          # test SQL stmt in sqlite3 shell, save as string
 	c.execute(command)    # run SQL statement
 
-	db.commit() #save changes
-	db.close()  #close database
-
 def lookup(student):
 	command = "SELECT * FROM students WHERE name = '{}'".format(student)
 	c.execute(command)
@@ -85,7 +82,9 @@ if __name__ == '__main__':
 		z = z.split(" ")
 		if z[0] == "allstudents":
 			run()
-			sys.exit(1)
+			break
 		elif z[0] == "lookup":
 			lookup(z[1])
-			sys.exit(1)
+			break
+	db.commit() #save changes
+	db.close()  #close database

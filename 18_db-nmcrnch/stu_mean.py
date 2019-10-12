@@ -31,14 +31,18 @@ courses = csv.DictReader(coursesf)
 #     c.execute(command)
 
 command = "SELECT * FROM students"
-r = c.execute(command).fetchall()
-for x in r:
-	command = "SELECT * FROM courses WHERE id = {};".format(x[2])
+allstudents = c.execute(command).fetchall()
+for stud in allstudents:
+	command = "SELECT * FROM courses WHERE id = {};".format(stud[2])
 	classes = c.execute(command).fetchall()
-	s = ("HELLO I AM {}, OF ID {} AND I AM TAKING").format(x[0], x[2])
+	s = ("HELLO I AM {}, OF ID {} AND I AM TAKING").format(stud[0], stud[2])
 	print(s)
-	for z in classes:
-		print(z)
+	# for z in classes:
+	cumsum = 0
+	for cl in classes:
+		cumsum += cl[1]
+	sss = ("MY AVERAGE IS {}").format(round(cumsum / len(classes), 2))
+	print(sss)
 	print("")
 
 

@@ -35,7 +35,7 @@ allstudents = c.execute(command).fetchall()
 for stud in allstudents:
 	command = "SELECT * FROM courses WHERE id = {};".format(stud[2])
 	classes = c.execute(command).fetchall()
-	s = ("HELLO I AM {}, OF ID {} AND I AM TAKING").format(stud[0], stud[2])
+	s = ("HELLO I AM {}, OF ID {} AND I AM TAKING {}").format(stud[0], stud[2], [x[0] for x in classes])
 	print(s)
 	# for z in classes:
 	cumsum = 0

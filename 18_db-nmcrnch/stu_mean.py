@@ -22,13 +22,25 @@ stud = csv.DictReader(studf)
 courses = csv.DictReader(coursesf)
 
 
-for row in stud:
-    command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
-    c.execute(command)
+# for row in stud:
+#     command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
+#     c.execute(command)
+#
+# for row in courses:
+#     command = "INSERT INTO courses VALUES('{}', '{}', '{}')".format(row["code"], row["mark"], row["id"])
+#     c.execute(command)
 
-for row in courses:
-    command = "INSERT INTO courses VALUES('{}', '{}', '{}')".format(row["code"], row["mark"], row["id"])
-    c.execute(command)
+command = "SELECT * FROM students"
+r = c.execute(command).fetchall()
+for x in r:
+	command = "SELECT * FROM courses WHERE id = {};".format(x[2])
+	classes = c.execute(command).fetchall()
+	s = ("HELLO I AM {}, OF ID {} AND I AM TAKING").format(x[0], x[2])
+	print(s)
+	for z in classes:
+		print(z)
+	print("")
+
 
 
 command = ""          # test SQL stmt in sqlite3 shell, save as string

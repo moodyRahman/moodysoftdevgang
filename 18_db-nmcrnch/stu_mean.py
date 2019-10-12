@@ -5,22 +5,23 @@
 
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O
+import sys
+
+DB_FILE="discobandit.db"
+
+db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
+c = db.cursor()               #facilitate db ops
+
+#==========================================================
+
+studf = open("students.csv", "r")
+coursesf = open("courses.csv", "r")
+
+stud = csv.DictReader(studf)
+courses = csv.DictReader(coursesf)
+
 
 def run():
-	DB_FILE="discobandit.db"
-
-	db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
-	c = db.cursor()               #facilitate db ops
-
-	#==========================================================
-
-	studf = open("students.csv", "r")
-	coursesf = open("courses.csv", "r")
-
-
-	stud = csv.DictReader(studf)
-	courses = csv.DictReader(coursesf)
-
 
 	# for row in stud:
 	#     command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
@@ -53,5 +54,20 @@ def run():
 	db.commit() #save changes
 	db.close()  #close database
 
-def lookup():
-	pass
+def lookup(student):
+	command = "SELECT * FROM students WHERE name = '{}'".format(student)
+	c.execute(command)
+	stud = c.fetchall()
+	s =  '''
+	HELLO I AM {}, AGE {}
+	'''.format(stud[0], stud[2])
+
+if __name__ == '__main__':
+	while True:
+		z = input("what u want: ")
+		z = z.split(" ")
+		if z[0] == "allstudents":
+			run()
+			sys.exit(1)
+		elif z[0] == "lookup":
+			lookup(z[1])

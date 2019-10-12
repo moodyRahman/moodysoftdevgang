@@ -52,7 +52,7 @@ def login():
 #
 # the only other way is via the logout buttonbcbcvbcvbcvbvcb
 # which fails the first cond and pops the user
-xvxfvxfvxfbvfxxbdgf
+
 @app.route("/auth")
 def auth():
 	if "name" in request.args:

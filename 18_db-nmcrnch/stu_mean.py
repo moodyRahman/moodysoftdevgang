@@ -58,9 +58,18 @@ def lookup(student):
 	command = "SELECT * FROM students WHERE name = '{}'".format(student)
 	c.execute(command)
 	stud = c.fetchall()
-	s =  '''
-	HELLO I AM {}, AGE {}
-	'''.format(stud[0], stud[2])
+	if len(stud) == 0:
+		print("student not found")
+		return
+	command = "SELECT * FROM courses WHERE id = {}".format(stud[0][2])
+	allcourses = c.execute(command).fetchall()
+
+	cumsum = 0
+	for x in allcourses:
+		cumsum += x[1]
+	# print(cumsum / len(allcourses))
+	s =  ''' HELLO I AM {}, MY AVERAGE IS {}'''.format(stud[0][0], cumsum / len(allcourses))
+	print(s)
 
 if __name__ == '__main__':
 	while True:
@@ -71,3 +80,4 @@ if __name__ == '__main__':
 			sys.exit(1)
 		elif z[0] == "lookup":
 			lookup(z[1])
+			sys.exit(1)

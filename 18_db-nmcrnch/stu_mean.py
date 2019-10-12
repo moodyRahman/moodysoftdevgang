@@ -6,8 +6,14 @@
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O
 import sys
+import os
 
 DB_FILE="discobandit.db"
+
+try:
+	os.remove(DB_FILE)
+except Exception as e:
+	pass
 
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()               #facilitate db ops
@@ -20,6 +26,17 @@ coursesf = open("courses.csv", "r")
 stud = csv.DictReader(studf)
 courses = csv.DictReader(coursesf)
 
+
+c.execute("CREATE TABLE students(name STRING, age INTEGER, id INTEGER);")
+c.execute("CREATE TABLE courses(code STRING, mark INTEGER, id INTEGER);")
+
+for row in stud:
+    command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
+    c.execute(command)
+
+for row in courses:
+    command = "INSERT INTO courses VALUES('{}', '{}', '{}')".format(row["code"], row["mark"], row["id"])
+    c.execute(command)
 
 def run():
 
@@ -68,7 +85,7 @@ def lookup(student):
 	for x in allcourses:
 		cumsum += x[1]
 	# print(cumsum / len(allcourses))
-	s =  ''' HELLO I AM {}, MY AVERAGE IS {}'''.format(stud[0][0], cumsum / len(allcourses))
+	s =  ''' HELLO I AM {}, OF ID {}, MY AVERAGE IS {}'''.format(stud[0][0], stud[0][2], cumsum / len(allcourses))
 	print(s)
 
 if __name__ == '__main__':

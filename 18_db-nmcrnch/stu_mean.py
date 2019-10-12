@@ -14,6 +14,22 @@ c = db.cursor()               #facilitate db ops
 
 #==========================================================
 
+studf = open("students.csv", "r")
+coursesf = open("courses.csv", "r")
+
+
+stud = csv.DictReader(studf)
+courses = csv.DictReader(coursesf)
+
+
+for row in stud:
+    command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
+    c.execute(command)
+
+for row in courses:
+    command = "INSERT INTO courses VALUES('{}', '{}', '{}')".format(row["code"], row["mark"], row["id"])
+    c.execute(command)
+
 
 command = ""          # test SQL stmt in sqlite3 shell, save as string
 c.execute(command)    # run SQL statement

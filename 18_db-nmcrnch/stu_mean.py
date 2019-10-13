@@ -1,7 +1,7 @@
-#Clyde "Thluffy" Sinclair
+# Moududur "Moody" Rahman & David Lupea
 #SoftDev
-#skeleton :: SQLITE3 BASICS
-#Oct 2019
+# STUDENT MEAN
+#Oct 13 2019
 
 import sqlite3   #enable control of an sqlite database
 import csv       #facilitate CSV I/O

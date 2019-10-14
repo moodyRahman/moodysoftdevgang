@@ -86,5 +86,6 @@ if __name__ == '__main__':
 		elif z[0] == "lookup":
 			lookup(z[1])
 			break
+		print("\nthings to do\n1) allstudents \n2) lookup <name>\n")
 	db.commit() #save changes
 	db.close()  #close database

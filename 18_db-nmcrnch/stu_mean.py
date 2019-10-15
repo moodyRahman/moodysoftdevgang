@@ -10,33 +10,33 @@ import os
 
 DB_FILE="discobandit.db"
 
-try:
-	os.remove(DB_FILE)
-except Exception as e:
-	pass
+# try:
+# 	os.remove(DB_FILE)
+# except Exception as e:
+# 	pass
 
 db = sqlite3.connect(DB_FILE) #open if file exists, otherwise create
 c = db.cursor()               #facilitate db ops
 
 #==========================================================
 
-studf = open("students.csv", "r")
-coursesf = open("courses.csv", "r")
+# studf = open("students.csv", "r")
+# coursesf = open("courses.csv", "r")
+#
+# stud = csv.DictReader(studf)
+# courses = csv.DictReader(coursesf)
 
-stud = csv.DictReader(studf)
-courses = csv.DictReader(coursesf)
 
+# c.execute("CREATE TABLE students(name STRING, age INTEGER, id INTEGER);")
+# c.execute("CREATE TABLE courses(code STRING, mark INTEGER, id INTEGER);")
 
-c.execute("CREATE TABLE students(name STRING, age INTEGER, id INTEGER);")
-c.execute("CREATE TABLE courses(code STRING, mark INTEGER, id INTEGER);")
-
-for row in stud:
-    command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
-    c.execute(command)
-
-for row in courses:
-    command = "INSERT INTO courses VALUES('{}', '{}', '{}')".format(row["code"], row["mark"], row["id"])
-    c.execute(command)
+# for row in stud:
+#     command = "INSERT INTO students VALUES('{}', '{}', '{}')".format(row["name"], row["age"], row["id"])
+#     c.execute(command)
+#
+# for row in courses:
+#     command = "INSERT INTO courses VALUES('{}', '{}', '{}')".format(row["code"], row["mark"], row["id"])
+#     c.execute(command)
 
 def run():
 	command = "SELECT * FROM students"
@@ -76,16 +76,35 @@ def lookup(student):
 	s =  ''' HELLO I AM {}, OF ID {}, MY AVERAGE IS {}'''.format(stud[0][0], stud[0][2], cumsum / len(allcourses))
 	print(s)
 
+# INSERT INTO tablename1 VALUES('Richard','Mutt')
+
+def insertcourse(cname, mark, id):
+	string = "INSERT INTO courses VALUES('{}','{}','{}')".format(cname, mark, id)
+	c.execute(string)
+
+def insertstudent(name, age, id):
+	string = "INSERT INTO students VALUES('{}','{}','{}')".format(name, age, id)
+	print(string)
+	c.execute(string)
+
+
 if __name__ == '__main__':
+	print("\nthings to do\n1) allstudents \n2) lookup <name>\n3) addcourse <name> <grade> <id>\n4) addstudent <name> <age> <id>\n5) save\n6) close\n7) help")
 	while True:
 		z = input("what u want: ")
 		z = z.split(" ")
 		if z[0] == "allstudents":
 			run()
-			break
 		elif z[0] == "lookup":
 			lookup(z[1])
+		elif z[0] == "addcourse":
+			insertcourse(z[1], z[2], z[3])
+		elif z[0] == "addstudent":
+			insertstudent(z[1], z[2], z[3])
+		elif z[0] == "save":
+			db.commit() #save changes
+			db.close()  #close database
+		elif z[0] == "close":
 			break
-		print("\nthings to do\n1) allstudents \n2) lookup <name>\n")
-	db.commit() #save changes
-	db.close()  #close database
+		elif z[0] == "help":
+			print("\nthings to do\n1) allstudents \n2) lookup <name>\n3) addcourse <name> <grade> <id>\n4) addstudent <name> <age> <id>\n5) save\n6) close\n7) help")

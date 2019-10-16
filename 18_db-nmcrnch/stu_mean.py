@@ -60,7 +60,6 @@ def insertcourse(cname, mark, id):
 
 def insertstudent(name, age, id):
 	string = "INSERT INTO students VALUES('{}','{}','{}')".format(name, age, id)
-	print(string)
 	c.execute(string)
 
 

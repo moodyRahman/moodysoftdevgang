@@ -13,9 +13,6 @@
 
 <body>
 
-	<div id="begin">
-
-	</div>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
 		<div class="container-fluid">
@@ -59,66 +56,121 @@
 			</div>
 		</div>
 	</nav>
+	<br><br>
 
-	<div class="container">
-		<div class="alert alert-dark" role="alert">
-			This is a dark alert—check it out!
-		</div>
+	<!-- alerts can display any amount of text and works similar to flashing in flask. Can also support HTML elements. -->
+	<div class="alert alert-success" role="alert">
+		<h4 class="alert-heading">Welcome to our Bootstrap Showcase!</h4>
+		<p>This is an alert message. They can be displayed depending on an action the user performs on the webpage, and is similar to how message flashing works.</p>
+		<hr>
+		<p class="mb-0">Hello World</p>
+	</div>
+
+	<div class="jumbotron text-center">
+		<!-- badges scale their sizes to match the parent element by using font sizing -->
+		<h1>JUMBOTRON TEXT<span class="badge badge-warning">and a badge!</span></h1>
+		<p>Resize this responsive page to see the effect!</p>
+	</div>
+
+	<!-- these are all the predefined button designs in bootstrap -->
+	<div class="text-center">
+		All of these are links () that have the btn class applied
 	</div>
 
 
+	<!-- here we make one row, where each column is one button -->
+	<div class="row">
+		<div class="col">
 
-	<div class="container">
-
-		WE HAVE BUTTONS <br>
-		<div class="flex-row">
-			<div class="p-2">
-				<button type="button" class="btn btn-outline-primary justify-content-center">Primary</button>
-				<button type="button" class="btn btn-outline-secondary justify-content-center">Secondary</button>
-				<button type="button" class="btn btn-outline-success justify-content-center">Success</button>
-			</div>
+			<a href="https://www.google.com" class="btn btn-outline-primary">cool</a>
 		</div>
-
-		<div class="flex-row">
-			<div class="p-2">
-
-				<button type="button" class="btn btn-danger">Danger</button>
-				<button type="button" class="btn btn-warning">Warning</button>
-				<button type="button" class="btn btn-info">Info</button>
-			</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-outline-secondary">outline</a>
 		</div>
-
-		<div class="flex-row">
-			<div class="p-2">
-				<button type="button" class="btn btn-light">Light</button>
-				<button type="button" class="btn btn-dark">Dark</button>
-				<button type="button" class="btn btn-link">Link</button>
-				<a href="#home" class="btn btn-info">SGSGDG</a>
-			</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-outline-success">buttons</a>
+		</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-danger">lots</a>
+		</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-warning">of</a>
+		</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-info">custom</a>
+		</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-light">colors</a>
+		</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-dark">ooooh</a>
+		</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-link">aaaaah</a>
+		</div>
+		<div class="col">
+			<a href="https://www.google.com" class="btn btn-info">dope asf</a>
 		</div>
 	</div>
 
+	<br><br><br><br>
 
+
+	<div class="jumbotron text-center">
+		<!-- badges scale their sizes to match the parent element by using font sizing -->
+		<h1>EMBRACE THE FLEXBOX</h1>
+		<p>Bootstrap uses a grid to oraganize content and to facilitate CSS</p>
+	</div>
 	<div class="container">
+		<h1 class="text-center">Centering in Bootstrap 4</h1>
+		<br><br>
+		<div class="row">
+			<!-- col class automatically separates the webpage based on how many columns the user puts in the container -->
+			<div class="col">
+				<h3>Each Column Element</h3>
+				<p>Bacon ipsum dolor amet biltong ball tip drumstick ground round shank cupim bacon brisket corned beef. Swine shank venison buffalo shoulder, meatball cow pastrami landjaeger shankle. Shoulder fatback meatball ribeye
+					pork chop drumstick spare ribs corned beef filet mignon salami bresaola pork belly ground round. Pork chop capicola spare ribs, ball tip t-bone bresaola rump tail biltong ham pork loin fatback flank tri-tip
+					short ribs. Short ribs tri-tip boudin strip steak, venison pig drumstick.</p>
 
-		<h1>Example heading <span class="badge badge-secondary">New</span></h1>
 
+				<button type="button" class="btn btn-success">
+					Notifications <span class="badge badge-light">4</span>
+				</button>
+			</div>
 
+			<div class="col">
+				<h3>Belongs To Their Own</h3>
+				<p>Filet mignon turducken pork chop andouille ball tip cow meatloaf alcatra jowl. Pork salami hamburger ham hock spare ribs ball tip. Doner kevin swine flank chicken ground round frankfurter prosciutto shankle pig.
+					Landjaeger pastrami chuck leberkas flank. Pork meatball pork belly pancetta, pork chop shank boudin chuck ball tip swine t-bone tail rump short loin. Tenderloin pork belly tail, cupim kielbasa fatback drumstick
+					beef ribs shank sausage pork spare ribs. Pork belly chuck shankle, andouille beef capicola t-bone kevin picanha tail alcatra tongue.</p>
 
+				<button type="button" class="btn btn-warning">
+					Notifications <span class="badge badge-light">4</span>
+				</button>
+			</div>
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			<div class="col">
+				<h3>CSS Class Inside</h3>
+				<p>Frankfurter kielbasa kevin, salami ball tip bresaola sausage. Filet mignon ham hock prosciutto, capicola boudin ground round beef buffalo bresaola shoulder kielbasa short loin porchetta. Flank beef jerky ribeye
+					tenderloin. Shoulder doner porchetta, picanha pork chop swine salami.</p>
 
-		<div id="home">
-			<a href="#begin">YOU JUST CLICKED HOME</a>
+				<button type="button" class="btn btn-secondary">
+					Notifications <span class="badge badge-light">4</span>
+				</button>
+			</div>
+
+			<div class="col">
+				<h3>The Container</h3>
+				<p>Frankfurter kielbasa kevin, salami ball tip bresaola sausage. Filet mignon ham hock prosciutto, capicola boudin ground round beef buffalo bresaola shoulder kielbasa short loin porchetta. Flank beef jerky ribeye
+					tenderloin. Shoulder doner porchetta, picanha pork chop swine salami.</p>
+
+				<button type="button" class="btn btn-secondary">
+					Notifications <span class="badge badge-light">0</span>
+				</button>
+			</div>
+
 		</div>
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-		<div id="button">
-			<a href="#begin">YOU JUST CLICKED A BUTTON</a>
-		</div>
 	</div>
 </body>
 

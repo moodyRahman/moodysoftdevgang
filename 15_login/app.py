@@ -22,6 +22,8 @@ app.secret_key = 'hfjkafhrku'
 allpasswords = {"hillary": "moody"}
 
 
+# sfdgdfgdfgdfgdfgd
+
 # we start from the root directory
 # test the existence of username and if it's "hillary"
 # if so go to welcome (this only happens w active hillary session)

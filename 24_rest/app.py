@@ -15,8 +15,9 @@ def hello():
     print(dat)
 
     link = json.loads(dat)["url"]
+    expl = json.loads(dat)["explanation"]
 
-    return render_template("img.html", image=link)
+    return render_template("img.html", image=link, explanation=expl)
 
 
 if __name__ == '__main__':

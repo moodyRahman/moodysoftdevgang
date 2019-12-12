@@ -28,8 +28,20 @@ var gcd = function (a, b) {
     return gcd(b, a % b);
 };
 
+
+var gcdwrap = function() {
+  var out = gcd(10, 25);
+  console.log(out);
+  return out
+};
+
 var students = ["bob", "jane", "billy", "john", "alfred", "mike"];
 
 var randomStudent = function () {
-  return students[parseInt(Math.random() * students.length)]
+  var stud = students[parseInt(Math.random() * students.length)]
+  console.log(stud);
+  return stud
 };
+
+var factbutton = document.getElementById("factb")
+factbutton.addEventListener("click", gcdwrap);

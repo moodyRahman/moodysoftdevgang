@@ -47,7 +47,7 @@ fibbutton.addEventListener("click", function(){var x = fibonacci(8); console.log
 
 var studentbutton = document.getElementById("studentbutton");
 var studentdemo = document.getElementById("studentdemo");
-studentbutton.addEventListener("click", function(){var x = randomStudent(); console.log(x); studentdemo.innerHTML=x});
+studentbutton.addEventListener("click", function(e){var x = randomStudent(); console.log(x); studentdemo.innerHTML=x; console.log(e);});
 
 var factbutton = document.getElementById("factbutton");
 var factdemo = document.getElementById("factdemo");

@@ -1,5 +1,5 @@
 /*
-Justin Chen and Devin Lin
+Justin Chen and Moody Rahman
 SoftDev1 pd02
 K#27 -- Sequential Progression
 2019-12-10
@@ -28,20 +28,27 @@ var gcd = function (a, b) {
     return gcd(b, a % b);
 };
 
-
-var gcdwrap = function() {
-  var out = gcd(10, 25);
-  console.log(out);
-  return out
-};
-
 var students = ["bob", "jane", "billy", "john", "alfred", "mike"];
 
 var randomStudent = function () {
-  var stud = students[parseInt(Math.random() * students.length)]
+  var stud = students[parseInt(Math.random() * students.length)];
   console.log(stud);
-  return stud
+  return stud;
 };
 
-var factbutton = document.getElementById("factb")
-factbutton.addEventListener("click", gcdwrap);
+
+var gcdbutton = document.getElementById("gcdbutton");
+var gcddemo = document.getElementById("gcddemo");
+gcdbutton.addEventListener("click", function(){var x = gcd(144, 24); console.log(x); gcddemo.innerHTML=x});
+
+var fibbutton = document.getElementById("fibbutton");
+var fibdemo = document.getElementById("fibdemo");
+fibbutton.addEventListener("click", function(){var x = fibonacci(8); console.log(x); fibdemo.innerHTML=x});
+
+var studentbutton = document.getElementById("studentbutton");
+var studentdemo = document.getElementById("studentdemo");
+studentbutton.addEventListener("click", function(){var x = randomStudent(); console.log(x); studentdemo.innerHTML=x});
+
+var factbutton = document.getElementById("factbutton");
+var factdemo = document.getElementById("factdemo");
+factbutton.addEventListener("click", function(){var x = fact(6); console.log(x); factdemo.innerHTML=x});

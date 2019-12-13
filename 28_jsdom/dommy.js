@@ -74,7 +74,7 @@ document.getElementById("fb").addEventListener("click", function(){addFib()});
 // document.getElementById("thelist").addEventListener("mouseover", function(e){console.log(e.target.attributes[0]);});
 // document.getElementById("thelist").addEventListener("mouseleave", function(e){});
 document.getElementById("thelist").addEventListener("mouseover", function(e){console.log(e.target.innerHTML);header.innerHTML=e.target.innerHTML});
-document.getElementById("thelist").addEventListener("mouseleave", function(e){});
+document.getElementById("thelist").addEventListener("mouseleave", function(e){header.innerHTML="Hello World!"});
 
 function triggerEvent( elem, event ) {
   var clickEvent = new Event( event ); // Create the event.

@@ -13,7 +13,7 @@ var fiblist = []
 
 var addItem = function(e){
   listdom = document.getElementById("thelist");
-  list.push("<li>word</li>");
+  list.push("<li id=word>word</li>");
   out = list.toString();
   while (out.indexOf(',') != -1) {
     out = out.replace(/,/, "");
@@ -67,9 +67,13 @@ var addFib = function(e){
 };
 
 
+header = document.getElementById("h")
 document.getElementById("b").addEventListener("click", function(){addItem();});
 document.getElementById("thelist").addEventListener("click", function(){removeItem();} );
 document.getElementById("fb").addEventListener("click", function(){addFib()});
+// document.getElementById("thelist").addEventListener("mouseover", function(e){console.log(typeof(e.target.attributes[0]));});
+document.getElementById("thelist").addEventListener("mouseover", function(e){});
+document.getElementById("thelist").addEventListener("mouseleave", function(e){console.log(e);console.log(e.fromElement.innerHTML);});
 
 function triggerEvent( elem, event ) {
   var clickEvent = new Event( event ); // Create the event.

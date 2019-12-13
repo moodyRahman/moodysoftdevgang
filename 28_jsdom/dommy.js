@@ -71,9 +71,10 @@ header = document.getElementById("h")
 document.getElementById("b").addEventListener("click", function(){addItem();});
 document.getElementById("thelist").addEventListener("click", function(){removeItem();} );
 document.getElementById("fb").addEventListener("click", function(){addFib()});
-// document.getElementById("thelist").addEventListener("mouseover", function(e){console.log(typeof(e.target.attributes[0]));});
-document.getElementById("thelist").addEventListener("mouseover", function(e){});
-document.getElementById("thelist").addEventListener("mouseleave", function(e){console.log(e);console.log(e.fromElement.innerHTML);});
+// document.getElementById("thelist").addEventListener("mouseover", function(e){console.log(e.target.attributes[0]);});
+// document.getElementById("thelist").addEventListener("mouseleave", function(e){});
+document.getElementById("thelist").addEventListener("mouseover", function(e){console.log(e.target.innerHTML);header.innerHTML=e.target.innerHTML});
+document.getElementById("thelist").addEventListener("mouseleave", function(e){});
 
 function triggerEvent( elem, event ) {
   var clickEvent = new Event( event ); // Create the event.

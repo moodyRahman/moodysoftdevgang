@@ -1,12 +1,12 @@
 
-var list = ["<li id=0>item 0</li>",
-"<li id=1>item 1</li>",
-"<li id=2>item 2</li>",
-"<li id=3>item 3</li>",
-"<li id=4>item 4</li>",
-"<li id=5>item 5</li>",
-"<li id=6>item 6</li>",
-"<li id=7>item 7</li>]"];
+var list = ["<li>item 0</li>",
+"<li>item 1</li>",
+"<li>item 2</li>",
+"<li>item 3</li>",
+"<li>item 4</li>",
+"<li>item 5</li>",
+"<li>item 6</li>",
+"<li>item 7</li>]"];
 
 
 var fiblist = []

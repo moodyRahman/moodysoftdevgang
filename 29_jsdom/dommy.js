@@ -9,10 +9,9 @@ var list = ["<li>item 0</li>",
 "<li>item 7</li>]"];
 
 
-var fiblist = []
+listdom = document.getElementById("thelist");
 
 var addItem = function(e){
-  listdom = document.getElementById("thelist");
   list.push("<li id=word>word</li>");
   out = "";
   for (var x = 0; x < list.length; x++) {
@@ -25,7 +24,6 @@ var addItem = function(e){
 };
 
 var removeItem = function(e){
-  listdom = document.getElementById("thelist");
   list.pop();
   out = "";
   for (var x = 0; x < list.length; x++) {
@@ -36,6 +34,11 @@ var removeItem = function(e){
   console.log(out)
   listdom.innerHTML = out;
 };
+
+
+
+
+
 
 var fibonacci = function (n) {
     if (n == 0) {
@@ -48,12 +51,15 @@ var fibonacci = function (n) {
 };
 
 
+var dynamicfibonacci = function(n){
+  return recentfib + 2recentfib;
+};
 
 currfib = 0;
-
+var fiblist = []
+fibdom = document.getElementById("fiblist");
 
 var addFib = function(e){
-  fibdom = document.getElementById("fiblist");
   fiblist.push("<li>" + fibonacci(currfib) + "</li>");
   currfib = currfib + 1;
   out = "";
@@ -65,6 +71,8 @@ var addFib = function(e){
   console.log(out)
   fibdom.innerHTML = out;
 };
+
+
 
 
 header = document.getElementById("h")

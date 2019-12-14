@@ -14,9 +14,9 @@ var fiblist = []
 var addItem = function(e){
   listdom = document.getElementById("thelist");
   list.push("<li id=word>word</li>");
-  out = list.toString();
-  while (out.indexOf(',') != -1) {
-    out = out.replace(/,/, "");
+  out = "";
+  for (var x = 0; x < list.length; x++) {
+    out = out + list[x]
   }
   out = out.replace("]", "")
   out = out.replace("[", "")
@@ -27,9 +27,9 @@ var addItem = function(e){
 var removeItem = function(e){
   listdom = document.getElementById("thelist");
   list.pop();
-  out = list.toString();
-  while (out.indexOf(',') != -1) {
-    out = out.replace(/,/, "");
+  out = "";
+  for (var x = 0; x < list.length; x++) {
+    out = out + list[x]
   }
   out = out.replace("]", "")
   out = out.replace("[", "")
@@ -56,9 +56,9 @@ var addFib = function(e){
   fibdom = document.getElementById("fiblist");
   fiblist.push("<li>" + fibonacci(currfib) + "</li>");
   currfib = currfib + 1;
-  out = fiblist.toString();
-  while (out.indexOf(',') != -1) {
-    out = out.replace(/,/, "");
+  out = "";
+  for (var x = 0; x < fiblist.length; x++) {
+    out = out + fiblist[x]
   }
   out = out.replace("]", "")
   out = out.replace("[", "")

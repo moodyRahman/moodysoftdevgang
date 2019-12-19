@@ -9,6 +9,8 @@ var list = ["<li>item 0</li>",
 "<li>item 7</li>]"];
 
 
+
+
 var fiblist = []
 
 var addItem = function(e){
